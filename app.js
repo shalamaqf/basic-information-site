@@ -2,6 +2,15 @@ const express = require('express');
 
 // create express app
 const app = express();
+const authorRouter = require('./routes/authorRouter')
+const bookRouter = require('./routes/bookRouter')
+const indexRouter = require('./routes/indexRouter')
+
+app.use('/authors', authorRouter)
+app.use('/books', bookRouter)
+app.use('/', indexRouter);
+
+
 
 const port = 3000;
 app.listen(port, (err) => {
@@ -10,22 +19,4 @@ app.listen(port, (err) => {
     }
 
     console.log(`My first Express app - listening on port ${port}!`)
-})
-
-
-// routing
-app.get('/', (req, res) => {
-    res.sendFile('./views/index.html', { root: __dirname });
-})
-
-app.get('/about', (req, res) => {
-    res.sendFile('./views/about.html', { root: __dirname });
-})
-
-app.get('/contact-me', (req, res) => {
-    res.sendFile('./views/contact-me.html', { root: __dirname });
-})
-
-app.use('/', (req, res) => {
-    res.status(404).sendFile('./views/404.html', { root: __dirname });
 })

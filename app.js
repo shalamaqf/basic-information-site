@@ -20,3 +20,9 @@ app.listen(port, (err) => {
 
     console.log(`My first Express app - listening on port ${port}!`)
 })
+
+// middleware function to handle all error
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send(err);
+});

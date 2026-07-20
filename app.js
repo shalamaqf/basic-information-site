@@ -1,4 +1,9 @@
 const express = require('express');
+const path = require("node:path");
+
+// set view engine
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 // create express app
 const app = express();

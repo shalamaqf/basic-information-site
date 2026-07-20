@@ -13,11 +13,11 @@ indexRouter.get('/about', (req, res) => {
 })
 
 indexRouter.get('/contact-me', (req, res) => {
-    res.sendFile('./views/contact-me.html', { root: path.join(__dirname, '..') });
+    res.render("contact-me")
 })
 
 indexRouter.use('/', (req, res) => {
-    res.status(404).sendFile('./views/404.html', { root: path.join(__dirname, '..') });
+    res.status(404).render("404")
 })
 
 module.exports = indexRouter;

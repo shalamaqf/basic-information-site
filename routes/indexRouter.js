@@ -9,7 +9,7 @@ indexRouter.get('/', (req, res) => {
 })
 
 indexRouter.get('/about', (req, res) => {
-    res.sendFile('./views/about.html', { root: path.join(__dirname, '..') });
+    res.render("about")
 })
 
 indexRouter.get('/contact-me', (req, res) => {
